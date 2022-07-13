@@ -11,5 +11,7 @@ Estudando pelo Curso Android Nativo Kotlin - DIO-Santander
 Android
    - [release/componentes-layouts-ui-ux-em-apps-android](https://github.com/jrnomura/matches_simulator_app/tree/release/desenvolvimento-mobile-nativo-para-android)
    
+3. Java e Kotlin Juntos!? Construindo Apps Android
+   - [elease/java-e-kotlin-juntos-construindo-apps-android](https://github.com/jrnomura/matches_simulator_app/tree/elease/java-e-kotlin-juntos-construindo-apps-android)
    
 
