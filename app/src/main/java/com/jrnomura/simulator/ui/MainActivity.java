@@ -4,20 +4,19 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 
-
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.jrnomura.simulator.R;
 import com.jrnomura.simulator.data.MatchesApi;
 import com.jrnomura.simulator.databinding.ActivityMainBinding;
 import com.jrnomura.simulator.domain.Match;
-import com.jrnomura.simulator.domain.Team;
 import com.jrnomura.simulator.ui.adapter.MatchesAdapter;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MatchesApi matchesApi;
-    private MatchesAdapter matchesAdapter;
+    private MatchesAdapter matchesAdapter = new MatchesAdapter(Collections.emptyList());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,15 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         matchesApi = retrofit.create(MatchesApi.class);
-        
+
     }
 
     private void setupMatechesList() {
         binding.rvMateches.setHasFixedSize(true);
         binding.rvMateches.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvMateches.setAdapter(matchesAdapter);
         findMatchesFromApi();
     }
-
 
 
     private void setupMatechesRefresh() {
@@ -89,19 +88,19 @@ public class MainActivity extends AppCompatActivity {
         binding.srlMateches.setRefreshing(true);
         matchesApi.getMatches().enqueue(new Callback<List<Match>>() {
             @Override
-            public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
-                if (response.isSuccessful()){
+            public void onResponse(@NonNull Call<List<Match>> call, @NonNull Response<List<Match>> response) {
+                if (response.isSuccessful()) {
                     List<Match> matches = response.body();
                     matchesAdapter = new MatchesAdapter(matches);
                     binding.rvMateches.setAdapter(matchesAdapter);
-                }else {
+                } else {
                     showErrorMessage();
                 }
                 binding.srlMateches.setRefreshing(false);
             }
 
             @Override
-            public void onFailure(Call<List<Match>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Match>> call, @NonNull Throwable t) {
                 showErrorMessage();
                 binding.srlMateches.setRefreshing(false);
             }

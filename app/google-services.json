@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "735710383917",
+    "project_id": "simulator-dio-sportheca-f9001",
+    "storage_bucket": "simulator-dio-sportheca-f9001.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735710383917:android:ec022480cb1d207f1fcda4",
+        "android_client_info": {
+          "package_name": "com.jrnomura.simulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735710383917-4fc06somse73tt9ejrqe3pe97n43bnqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlYyxCkvfeW9vAstnFdkTtgCgdP6Zh0QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735710383917-4fc06somse73tt9ejrqe3pe97n43bnqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
